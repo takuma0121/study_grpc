@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package simple;
+
+// request
+message SimpleRequest{
+  string destination = 1; // Pingの宛先
+  int32 count = 2;          // Pingの回数
+}
+
+// response
+message SimpleResponse{
+  float avg_rtt = 1;      // 平均往復遅延値
+  string time = 2;        // 現在時刻
+}
+
+// interface
+service SimpleService{
+  rpc SimpleSend (SimpleRequest) returns (SimpleResponse) {}
+}
+
+service ServerStreamingService{
+  rpc ServerStreamingSend (SimpleRequest) returns (stream SimpleResponse) {}
+}

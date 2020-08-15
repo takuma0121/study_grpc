@@ -6,7 +6,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import japanize_matplotlib
 
-
 # 引数
 parser = argparse.ArgumentParser(description='Ping結果を可視化するツール')
 parser.add_argument('--destination', type=str,
